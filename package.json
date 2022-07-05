@@ -21,9 +21,9 @@
     "lint": "prettier --check .",
     "format": "prettier --write .",
     "rtl": "webpack --config webpack-rtl.config.js",
-    "createfolder" : "rimraf dist/.icon-ico dist/builder-debug.yml dist/win-unpacked",
-    "macDeleteFiles" : "rimraf dist/.icon-icns dist/mac dist/*.zip dist/builder-debug.yml",
-    "linuxDeleteFiles" : "rimraf dist/linux-unpacked"
+    "createfolder": "rimraf dist/.icon-ico dist/builder-debug.yml dist/win-unpacked",
+    "macDeleteFiles": "rimraf dist/.icon-icns dist/mac dist/*.zip dist/builder-debug.yml",
+    "linuxDeleteFiles": "rimraf dist/linux-unpacked"
   },
   "build": {
     "asar": true,
@@ -124,6 +124,7 @@
     "lint-staged": "^11.0.0",
     "mini-css-extract-plugin": "1.6.2",
     "nouislider": "^15.2.0",
+    "npm-force-resolutions": "^0.0.10",
     "object-path": "^0.11.5",
     "path": "^0.12.7",
     "prism-react-renderer": "^1.2.1",
@@ -163,7 +164,7 @@
     "@types/object-path": "0.11.0",
     "@types/prismjs": "1.16.5",
     "@types/qs": "6.9.7",
-    "@types/react": "^17.0.0",
+    "@types/react": "^18.0.4",
     "@types/react-copy-to-clipboard": "5.0.0",
     "@types/react-dom": "^17.0.0",
     "@types/react-table": "^7.7.9",

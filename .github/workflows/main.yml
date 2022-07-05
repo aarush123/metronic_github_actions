@@ -34,66 +34,66 @@ jobs:
       env:
         GH_TOKEN: ${{secrets.PERSON_TOKEN}}
       run: npm run buildwin
-    - name: remove from dist
-      run: npm run createfolder
-    - uses: shallwefootball/s3-upload-action@master
-      name: Upload to S3
-      id: S3
-      with:
-        aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-        aws_bucket: ${{ secrets.AWS_BUCKET_NAME }}
-        source_dir: 'dist'
-        destination_dir: windows
+    # - name: remove from dist
+    #   run: npm run createfolder
+    # - uses: shallwefootball/s3-upload-action@master
+    #   name: Upload to S3
+    #   id: S3
+    #   with:
+    #     aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #     aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+    #     aws_bucket: ${{ secrets.AWS_BUCKET_NAME }}
+    #     source_dir: 'dist'
+    #     destination_dir: windows
 
-  build_on_mac:
-    runs-on: macos-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@master
-      with:
-        node-version: 14
-    - name: install dependencies
-      run: npm install
-    - name: set github secrets build macos
-      env:
-        GH_TOKEN: ${{secrets.PERSON_TOKEN}}
-      run: npm run buildmac
-    - name: remove from dist
-      run: npm run macDeleteFiles
-    - uses: shallwefootball/s3-upload-action@master
-      name: Upload to S3
-      id: S3
-      with:
-        aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-        aws_bucket: ${{ secrets.AWS_BUCKET_NAME }}
-        source_dir: 'dist'
-        destination_dir: macos
+  # build_on_mac:
+  #   runs-on: macos-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - uses: actions/setup-node@master
+  #     with:
+  #       node-version: 14
+  #   - name: install dependencies
+  #     run: npm install
+  #   - name: set github secrets build macos
+  #     env:
+  #       GH_TOKEN: ${{secrets.PERSON_TOKEN}}
+  #     run: npm run buildmac
+  #   - name: remove from dist
+  #     run: npm run macDeleteFiles
+  #   - uses: shallwefootball/s3-upload-action@master
+  #     name: Upload to S3
+  #     id: S3
+  #     with:
+  #       aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #       aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+  #       aws_bucket: ${{ secrets.AWS_BUCKET_NAME }}
+  #       source_dir: 'dist'
+  #       destination_dir: macos
 
-  build_on_linux:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v2
-    - uses: actions/setup-node@master
-      with:
-        node-version: 14
+  # build_on_linux:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v2
+  #   - uses: actions/setup-node@master
+  #     with:
+  #       node-version: 14
 
-    - name: install dependencies
-      run: npm install
+  #   - name: install dependencies
+  #     run: npm install
      
-    - name: set github secrets build windows
-      env:
-        GH_TOKEN: ${{secrets.PERSON_TOKEN}}
-      run: npm run buildLinux
-    - name: remove from dist
-      run: npm run linuxDeleteFiles    
-    - uses: shallwefootball/s3-upload-action@master
-      name: Upload to S3
-      id: S3
-      with:
-        aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
-        aws_bucket: ${{ secrets.AWS_BUCKET_NAME }}
-        source_dir: 'dist'
-        destination_dir: linux
+  #   - name: set github secrets build windows
+  #     env:
+  #       GH_TOKEN: ${{secrets.PERSON_TOKEN}}
+  #     run: npm run buildLinux
+  #   - name: remove from dist
+  #     run: npm run linuxDeleteFiles    
+  #   - uses: shallwefootball/s3-upload-action@master
+  #     name: Upload to S3
+  #     id: S3
+  #     with:
+  #       aws_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #       aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY}}
+  #       aws_bucket: ${{ secrets.AWS_BUCKET_NAME }}
+  #       source_dir: 'dist'
+  #       destination_dir: linux
